@@ -5,6 +5,7 @@ public class DadosEquipamento {
     private String descricao;
     private boolean ehNovo;
     private double valorEstimado;
+
     public DadosEquipamento(String serial, String descricao,
                             boolean ehNovo, double valorEstimado) {
         this.serial = serial;
@@ -12,16 +13,20 @@ public class DadosEquipamento {
         this.ehNovo = ehNovo;
         this.valorEstimado = valorEstimado;
     }
-    String getSerial() {
+
+    public String getSerial() {
         return serial;
     }
-    String getDescricao() {
+
+    public String getDescricao() {
         return descricao;
     }
-    boolean getEhNovo() {
+
+    public boolean getEhNovo() {
         return ehNovo;
     }
-    double getValorEstimado() {
+
+    public double getValorEstimado() {
         return valorEstimado;
     }
 }
