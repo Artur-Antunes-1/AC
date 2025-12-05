@@ -10,7 +10,11 @@ public class Notebook extends Equipamento {
     private boolean carregaDadosSensiveis;
 
     public Notebook(String serial, String descricao, boolean ehNovo, double valorEstimado, boolean carregaDadosSensiveis) {
-        super(serial, descricao, ehNovo, valorEstimado);
+        super();
+        this.setSerial(serial);
+        this.setDescricao(descricao);
+        this.setEhNovo(ehNovo);
+        this.setValorEstimado(valorEstimado);
         this.carregaDadosSensiveis = carregaDadosSensiveis;
     }
 

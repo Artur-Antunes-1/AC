@@ -1,58 +1,46 @@
 package br.edu.cs.poo.ac.ordem.daos;
 
 import br.edu.cs.poo.ac.ordem.entidades.FechamentoOrdemServico;
-import java.io.Serializable;
+import br.edu.cs.poo.ac.utils.Registro;
 
 public class FechamentoOrdemServicoDAO extends DAOGenerico {
 
     public FechamentoOrdemServicoDAO() {
-        super(FechamentoOrdemServico.class);
+        super();
     }
 
     public FechamentoOrdemServico buscar(String numeroOrdemServico) {
-        return (FechamentoOrdemServico)cadastroObjetos.buscar(numeroOrdemServico);
+        return (FechamentoOrdemServico) super.buscar(numeroOrdemServico);
     }
 
     public boolean incluir(FechamentoOrdemServico fechamento) {
-        String numero = fechamento.getNumeroOrdemServico();
-        if (buscar(numero) == null) {
-            cadastroObjetos.incluir(fechamento, numero);
-            return true;
-        } else {
-            return false;
-        }
+        return super.incluir(fechamento);
     }
 
     public boolean alterar(FechamentoOrdemServico fechamento) {
-        String numero = fechamento.getNumeroOrdemServico();
-        if (buscar(numero) != null) {
-            cadastroObjetos.alterar(fechamento, numero);
-            return true;
-        } else {
-            return false;
-        }
+        return super.alterar(fechamento);
     }
 
     public boolean excluir(String numeroOrdemServico) {
-        if (buscar(numeroOrdemServico) != null) {
-            cadastroObjetos.excluir(numeroOrdemServico);
-            return true;
-        } else {
-            return false;
-        }
+        return super.excluir(numeroOrdemServico);
     }
 
     public FechamentoOrdemServico[] buscarTodos() {
-        Serializable[] ret = cadastroObjetos.buscarTodos();
+        Registro[] ret = super.buscarTodos();
         FechamentoOrdemServico[] retorno;
         if (ret != null && ret.length > 0) {
             retorno = new FechamentoOrdemServico[ret.length];
-            for (int i=0; i<ret.length; i++) {
-                retorno[i] = (FechamentoOrdemServico)ret[i];
+            for (int i = 0; i < ret.length; i++) {
+                retorno[i] = (FechamentoOrdemServico) ret[i];
             }
         } else {
             retorno = new FechamentoOrdemServico[0];
         }
         return retorno;
+    }
+    
+    @Override
+    public Class<?> getClasseEntidade() {
+        return FechamentoOrdemServico.class;
     }
 }

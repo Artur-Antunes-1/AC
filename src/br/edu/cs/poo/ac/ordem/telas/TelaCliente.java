@@ -204,8 +204,8 @@ public class TelaCliente {
     private void preencherCampos(Cliente cliente) {
         txtNome.setText(cliente.getNome());
         txtEmail.setText(cliente.getContato().getEmail());
-        txtCelular.setText(cliente.getContato().getContato());
-        chkEhZap.setSelected(cliente.getContato().getEhZap());
+        txtCelular.setText(cliente.getContato().getCelular());
+        chkEhZap.setSelected(cliente.getContato().isEhZap());
         txtDataCadastro.setText(cliente.getDataCadastro().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 

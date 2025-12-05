@@ -31,7 +31,7 @@ public class TesteEquipamentoMediator extends TesteAbstrato {
     private EquipamentoMediator mediator = EquipamentoMediator.getInstancia();
     public TesteEquipamentoMediator() {
         super(Notebook.class);
-    }
+    } 
     @BeforeEach
     public void limparRegistrosDesktopNotebook() {
         FileUtils.limparDiretorio("." + SEP + Desktop.class.getSimpleName());

@@ -1,58 +1,46 @@
 package br.edu.cs.poo.ac.ordem.daos;
 
 import br.edu.cs.poo.ac.ordem.entidades.OrdemServico;
-import java.io.Serializable;
+import br.edu.cs.poo.ac.utils.Registro;
 
 public class OrdemServicoDAO extends DAOGenerico {
 
     public OrdemServicoDAO() {
-        super(OrdemServico.class);
+        super();
     }
 
     public OrdemServico buscar(String numero) {
-        return (OrdemServico)cadastroObjetos.buscar(numero);
+        return (OrdemServico) super.buscar(numero);
     }
 
     public boolean incluir(OrdemServico ordem) {
-        String numero = ordem.getNumero();
-        if (buscar(numero) == null) {
-            cadastroObjetos.incluir(ordem, numero);
-            return true;
-        } else {
-            return false;
-        }
+        return super.incluir(ordem);
     }
 
     public boolean alterar(OrdemServico ordem) {
-        String numero = ordem.getNumero();
-        if (buscar(numero) != null) {
-            cadastroObjetos.alterar(ordem, numero);
-            return true;
-        } else {
-            return false;
-        }
+        return super.alterar(ordem);
     }
 
     public boolean excluir(String numero) {
-        if (buscar(numero) != null) {
-            cadastroObjetos.excluir(numero);
-            return true;
-        } else {
-            return false;
-        }
+        return super.excluir(numero);
     }
 
     public OrdemServico[] buscarTodos() {
-        Serializable[] ret = cadastroObjetos.buscarTodos();
+        Registro[] ret = super.buscarTodos();
         OrdemServico[] retorno;
         if (ret != null && ret.length > 0) {
             retorno = new OrdemServico[ret.length];
-            for (int i=0; i<ret.length; i++) {
-                retorno[i] = (OrdemServico)ret[i];
+            for (int i = 0; i < ret.length; i++) {
+                retorno[i] = (OrdemServico) ret[i];
             }
         } else {
             retorno = new OrdemServico[0];
         }
         return retorno;
+    }
+    
+    @Override
+    public Class<?> getClasseEntidade() {
+        return OrdemServico.class;
     }
 }

@@ -1,9 +1,6 @@
 package br.edu.cs.poo.ac.ordem.testes;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import br.edu.cs.poo.ac.ordem.daos.exemplo.ExemploDAO;
 import br.edu.cs.poo.ac.ordem.daos.exemplo.Exemplo;
 
 @Disabled("Classe suprimida temporariamente")

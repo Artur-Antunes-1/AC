@@ -4,13 +4,13 @@ public class ValidadorCPFCNPJ {
 
     public static ResultadoValidacaoCPFCNPJ validarCPFCNPJ(String cpfCnpj) {
         if (StringUtils.estaVazia(cpfCnpj)) {
-            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_NULO_OU_BRANCO);
+            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_NAO_E_CPF_NEM_CNPJ);
         }
 
         String limpo = cpfCnpj.replaceAll("[^0-9]", "");
 
-        if (!limpo.matches("\\d+")) {
-            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_COM_CARACTERES_INVALIDOS);
+        if (limpo.isEmpty() || !limpo.matches("\\d+")) {
+            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_NAO_E_CPF_NEM_CNPJ);
         }
 
         if (isCPF(limpo)) {
@@ -20,7 +20,7 @@ public class ValidadorCPFCNPJ {
             ErroValidacaoCPFCNPJ erro = validarCNPJ(limpo);
             return new ResultadoValidacaoCPFCNPJ(false, true, erro);
         } else {
-            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_COM_TAMANHO_INVALIDO);
+            return new ResultadoValidacaoCPFCNPJ(false, false, ErroValidacaoCPFCNPJ.CPF_CNPJ_NAO_E_CPF_NEM_CNPJ);
         }
     }
 

@@ -1,10 +1,10 @@
 package br.edu.cs.poo.ac.ordem.entidades;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import br.edu.cs.poo.ac.utils.Registro;
 
-public class Cliente implements Serializable {
+public class Cliente implements Registro {
     private final String cpfCnpj;
     private String nome;
     private Contato contato;
@@ -48,5 +48,8 @@ public class Cliente implements Serializable {
         return periodo.getYears();
     }
 
-
+    @Override
+    public String getId() {
+        return cpfCnpj;
+    }
 }

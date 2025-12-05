@@ -12,7 +12,10 @@ public class StringUtils {
         if (tamanho < 0) {
             return false;
         }
-        return str != null && str.length() > tamanho;
+        if (str == null) {
+            return tamanho > 0;
+        }
+        return str.length() > tamanho;
     }
 
     public static boolean emailValido(String email) {
